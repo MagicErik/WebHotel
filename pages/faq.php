@@ -13,7 +13,7 @@
     <?php 
     include('../scripts/menue.php');
     ?>
-    <div class="box1 col-sm-6">
+    <div class="box1">
         <div class="box">
             <h2>Wie kann ich ein Zimmer buchen?</h2>
             <p1>Sie können ein Zimmer buchen, indem Sie unser Online-Buchungsformular ausfüllen oder uns telefonisch

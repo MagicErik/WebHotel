@@ -15,7 +15,7 @@
 <?php 
   include('../scripts/menue.php');
   ?>
-    <div class="box1 col-sm-6">
+    <div class="box1">
         <h1>Impressum</h1>
         <br>
         <div class="box">

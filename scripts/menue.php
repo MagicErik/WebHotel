@@ -18,6 +18,9 @@ echo '<nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
             <li class="nav-item">
                 <a class="nav-link" href="faq.php">Help</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="gallery.php">Pictures</a>
+            </li>
 
         </ul>
         <form class="d" >
@@ -30,6 +33,9 @@ echo '<nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
     </div>
 </div>
 </nav>
+';
+?>
+
 
 <div class="modal" id="LoginModal" tabindex="-1" role="dialog" aria-labelledby="LoginModal" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -140,5 +146,3 @@ echo '<nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
     </div>
   </div>
 
-';
-?>

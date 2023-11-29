@@ -42,9 +42,8 @@
                   
                 </tr>
                 <tr>
-                <th tyle="font-weight: 100;">
+                <th style="font-weight: 100;">
                     <div >
-                            
                             <p1>Dittrich Erik <br>
                                 Langestrasße 123<br>
                                 0664 123 456 789<br>

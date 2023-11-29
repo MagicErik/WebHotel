@@ -10,8 +10,11 @@
         
             if(($_SESSION['email'] === $email) && ($_SESSION['password'] === $password))
             {
+                
                 $_SESSION["loggedIn"] = true;
                 $_SESSION['name']= $_SESSION['username'];
+                header("Location: ../index.php");
+
                 return true;
             }
 
@@ -21,9 +24,15 @@
 
     function logout()
     {
+        if ($_SERVER['REQUEST_URI'] !== 'index.php') {
+            $indexLocation = "Location: ../index.php";
+        }
+        
         $_SESSION["loggedIn"] = false;
-        $name="Bilton";
+        $_SESSION['name']="Billton";
+        header($indexLocation);
     }
+        
 
 
 

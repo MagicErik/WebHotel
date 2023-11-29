@@ -13,6 +13,7 @@ function beliefmedia_grid_gallery($dir = '../res/pictures/gallery/', $columns = 
       -ms-flex-wrap: wrap; /* IE 10 */
       flex-wrap: wrap;
       padding: 0 4px;
+      
     }
 
     @media (min-width: ' . $width[0] . 'px) {
@@ -59,6 +60,9 @@ function beliefmedia_grid_gallery($dir = '../res/pictures/gallery/', $columns = 
     .column img {
       margin-top: 12px;
       vertical-align: center;
+      min-height: 300px;
+      
+      max-height: 300px;
     }
     
     /* Clear floats after the columns */

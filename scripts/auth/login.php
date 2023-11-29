@@ -1,6 +1,10 @@
 <?php
     //include("../data/connection.php");
 
+    function signUp()
+    {
+        $_SESSION["SignUP"] = true;
+    }
     function login($email, $password)
     {
         

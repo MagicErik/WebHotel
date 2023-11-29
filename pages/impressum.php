@@ -32,9 +32,28 @@
                                 0664 123 456 789<br>
                                 <a href="mailto:email@this.email.com">email@this.email.com</a>
                             </p1>
+                        </div>
                     </th>
                     <th>
-                        <img src="../res/PXL_20220623_105750104.jpg"   height="120px" style="margin-top: 20px;  float: left;"
+                        <img src="../res/pictures/PXL_20220623_105750104.jpg"   height="120px" style="margin-top: 20px;  float: left; padding-top:10px"
+                            alt="Dittrich Erik">
+
+                    </th>
+                  
+                </tr>
+                <tr>
+                <th tyle="font-weight: 100;">
+                    <div >
+                            
+                            <p1>Dittrich Erik <br>
+                                Langestrasße 123<br>
+                                0664 123 456 789<br>
+                                <a href="mailto:email@this.email.com">email@this.email.com</a>
+                            </p1>
+                        </div>
+                    </th>
+                    <th>
+                        <img src="../res/pictures/PXL_20220623_105750104.jpg"   height="120px" style="margin-top: 20px;  float: left; padding-top:10px"
                             alt="Dittrich Erik">
 
                     </th>

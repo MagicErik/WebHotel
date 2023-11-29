@@ -6,17 +6,17 @@
 </head>
 
 <body>
-    <form action="" class="forms">
+    <form action="" class="forms" method="post">
         <div class="forminput">
             <label class="formtext" for="anrede">Anrede: </label>
             <input type="radio" id="gender1" name="gender" value="male" required>
             <label for="gender1">Herr</label>
 
             <input type="radio" id="gender2" name="gender" value="female" required>
-            <label for="gender1">Frau</label>
+            <label for="gender2">Frau</label>
 
             <input type="radio" id="gender3" name="gender" value="other" required>
-            <label for="gender1">Sonstige</label><br><br>
+            <label for="gender3">Sonstige</label><br><br>
         </div>
         <div class="forminput">
             <div class="forminput1">
@@ -63,5 +63,11 @@
         <input type="submit" value="Submit">
     </form>
 </body>
+<?php
+    include('../scripts/auth/session.php');
+
+    $_SESSION("anrede") = $_POST['gender'];
+
+?>
 
 </Html>

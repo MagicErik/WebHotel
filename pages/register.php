@@ -1,12 +1,24 @@
 <Html>
-
+  <?php 
+    include('../scripts/auth/session.php');
+    ?>
 <head>
+    
     <link rel="stylesheet" href="../res/style.css">
-    <link rel="stylesheet" href="res/bootstrap-5.3.2-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../res/bootstrap-5.3.2-dist/css/bootstrap.css">
+    <link rel="icon" type="image/jpg" href="../res/pictures/vector-hotel-icon-symbol-sign.jpg">
+    <title>Register</title>
 </head>
 
+
+
 <body>
-    <form action="" class="forms" method="post">
+<?php 
+  include('../scripts/nav/menue.php');
+  ?>
+  <br><br>
+  <div class="box container py-5 h-100">
+    <form action="" class="forms" method="post" name="signup">
         <div class="forminput">
             <label class="formtext" for="anrede">Anrede: </label>
             <input type="radio" id="gender1" name="gender" value="male" required>
@@ -48,7 +60,7 @@
             <label class="formtext" for="username">Username:</label>
             </div>
             <div class="forminput2">
-            <input type="text" id="username" name="user" required>
+            <input type="text" id="username" name="username" required>
             </div>
         </div>
         <div class="forminput">
@@ -59,15 +71,27 @@
             <input type="password" id="password" name="password" pattern=".{8,}" required>
             </div>
         </div>
-        <br><br>
-        <input type="submit" value="Submit">
+        <br>
+        <input type="submit" value="Submit" href="#" name="signup">
     </form>
+  </div>
 </body>
 <?php
-    include('../scripts/auth/session.php');
+require_once('../scripts/data/user.php');
+if (isset($_POST['signup'])) {
+    // The submit button was clicked
+    $_SESSION['gender'] = $_POST['gender'];
+    $_SESSION['firstname'] = $_POST['vname'];
+    $_SESSION['lastname'] = $_POST['lname'];
+    $_SESSION['email'] = $_POST['email'];
+    $_SESSION['username'] = $_POST['username'];
+    $_SESSION['password'] = $_POST['password'];
+    $User = new User($_SESSION['username'], $_SESSION['password'], $_SESSION['firstname'], $_SESSION['lastname'], $_SESSION['email']);
+    //write($User);
 
-    $_SESSION("anrede") = $_POST['gender'];
-
+    $_COOKIE['User'] = $_SESSION['firstname'];
+    //echo $_SESSION['username'];
+}
 ?>
 
 </Html>

@@ -1,21 +1,28 @@
 <?php
-class Authentification
-{
-    function signUp(User $user)
-    {
+    //include("../data/connection.php");
 
-    }
-    function login($username, $password_hash)
+    function login($email, $password)
     {
-        $_SESSION["User"] = $username;
+        
+            if(($_SESSION['email'] === $email) && ($_SESSION['password'] === $password))
+            {
+                $_SESSION["loggedIn"] = true;
+                $_SESSION['name']= $_SESSION['username'];
+                return true;
+            }
+
+            return false;
+        
     }
 
     function logout()
     {
+        $_SESSION["loggedIn"] = false;
+        $name="Bilton";
     }
 
 
-}
+
 
 
 

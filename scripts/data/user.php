@@ -7,7 +7,7 @@
     private $lastname;
 
 
-    function newUser($username, $password_hash, $firstname, $lastname, $email)
+    function User($username, $password_hash, $firstname, $lastname, $email)
     {
         $this->username = $username;
         $this->password = $password_hash;

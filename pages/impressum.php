@@ -1,3 +1,6 @@
+<?php 
+    include('../scripts/auth/session.php');
+    ?>
 <!DOCTYPE html>
 <html>
 
@@ -5,7 +8,7 @@
     <title>Impressum</title>
     <link rel="stylesheet" href="../res/bootstrap-5.3.2-dist/css/bootstrap.css">
     <link rel="stylesheet" href="../res/style.css">
-    <link rel="icon" type="image/jpg" href="../res/vector-hotel-icon-symbol-sign.jpg">
+    <link rel="icon" type="image/jpg" href="../res/pictures/vector-hotel-icon-symbol-sign.jpg">
     <script type = "text/javascript" src="../res/bootstrap-5.3.2-dist/js/bootstrap.js"></script>
     <script type = "text/javascript" src="../res/bootstrap-5.3.2-dist/js/script.js"></script>
 
@@ -13,7 +16,7 @@
 
 <body>
 <?php 
-  include('../scripts/menue.php');
+  include('../scripts/nav/menue.php');
   ?>
     <div class="box1">
         <h1>Impressum</h1>

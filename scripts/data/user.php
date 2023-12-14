@@ -1,39 +1,24 @@
-<?php   class User
+<?php   
+class User
 {
     private $username;
     private $email;
     private $password_hash;
+    private $salt;
+    private $password;
     private $firstname;
     private $lastname;
 
 
-    function User($username, $password_hash, $firstname, $lastname, $email)
+    function User($username, $firstname, $lastname, $email)
     {
         $this->username = $username;
-        $this->password = $password_hash;
         $this->firstname = $firstname;
         $this->lastname = $lastname;
         $this->email = $email;
     }
 
 
-    public function toJSON()
-    {
-        $json = array(
-            'username' => $this->getUsername(),
-            'password_hash' => $this->getPassword_hash(),
-            'firstname' => $this->getFirstname(),
-            'lastname'=> $this->getLastname(),
-            'email'=> $this->getEmail(),
-        );
-
-        return json_encode($json);
-    }
-
-    public function jsonSerialize()
-    {
-        return get_object_vars($this);
-    }
     private function getUsername(){
         return $this->username;
     }
@@ -50,8 +35,36 @@
         return $this->lastname;
     }
 
+    
+    public function getSalt(){
+        return $this->salt;
+    }
+
     private function getEmail(){
         return $this->email;
+    }
+
+
+    private function hashPassword($password) {
+        // Generate a random salt
+        $salt = random_bytes(16);
+        $this -> salt = $salt;
+
+        // Combine the password and salt
+        $hashed_password = password_hash($password . $salt, PASSWORD_BCRYPT);
+
+        // Store the hashed password with the salt
+        $this->password_hash = $hashed_password . ':' . base64_encode($salt);
+    }
+
+    public function setPassword($password) {
+        // Call the private method to hash the password with salt
+        $this->hashPassword($password);
+    }
+
+    public function getPasswordHash() {
+        // Return the hashed password with salt
+        return $this->password_hash;
     }
 
 

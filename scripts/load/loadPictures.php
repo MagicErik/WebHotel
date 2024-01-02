@@ -20,7 +20,7 @@ function beliefmedia_grid_gallery($dir = '../res/pictures/gallery/', $columns = 
       
       .column {
         float: left;
-        width: 100%;
+        width: 90%;
         padding: 10px;
       }
     }
@@ -28,9 +28,6 @@ function beliefmedia_grid_gallery($dir = '../res/pictures/gallery/', $columns = 
     @media (min-width: ' . $width[1] . 'px) {
       
       .column {
-        -ms-flex: 50%; /* IE 10 */
-        flex: 50%;
-        padding: 0 4px;
         -ms-flex: 50%; /* IE 10 */
         flex: 50%;
         padding: 0 4px;
@@ -44,7 +41,6 @@ function beliefmedia_grid_gallery($dir = '../res/pictures/gallery/', $columns = 
         padding: 10px;
         -ms-flex: 30%; /* IE 10 */
         flex: 30%;
-        padding: 0 4px;
       }
     }
     @media (min-width: ' . $width[3] . 'px) {
@@ -58,19 +54,14 @@ function beliefmedia_grid_gallery($dir = '../res/pictures/gallery/', $columns = 
       }
     }
     .column img {
-      margin-top: 12px;
+      margin: 12px;
+      padding: 10px;
       vertical-align: center;
       min-height: 50%%;
       
-      max-width: 100%;
+      max-width: 90%;
     }
-    
-    /* Clear floats after the columns */
-    .row:after {
-      content: "";
-      display: table;
-      clear: both;
-    }
+s
     </style>
 
  
@@ -79,7 +70,7 @@ function beliefmedia_grid_gallery($dir = '../res/pictures/gallery/', $columns = 
     $image_array = glob(rtrim($dir, '/') . '/*.{jpg,jpeg,png,gif}', GLOB_BRACE);
     foreach ($image_array as $image) {
         $image = ($url !== false) ? rtrim($url, '/') . '/' . basename($image) : $image;
-        $return .= '<div class="item selfie col-lg-3 col-md-4 col-6 col-sm "><img decoding="async" class="img-fluid rounded float-left" style="width:100%" src="' . $image . '"></div>';
+        $return .= '<div class="item selfie col-lg-3 col-md-4 col-6 col-sm "><img decoding="async" class="img rounded float-left" style="width:100%" src="' . $image . '"></div>';
     }
     $return = '<div class="row">' . $style . $return . '</div>';
     return $return;

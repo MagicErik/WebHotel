@@ -19,10 +19,16 @@ class PasswordHasher {
         $decoded_salt = base64_decode($stored_salt);
 
         // Hash the input password with the provided salt
-        $hashed_input_password = password_hash($input_password . $decoded_salt, PASSWORD_DEFAULT);
-
+        $hashed_input_password = password_hash($input_password . $decoded_salt  , PASSWORD_DEFAULT);
+        echo '<br>';
+        echo $input_password;
+        echo '<br>';
+        echo $decoded_salt;
+        echo '<br>';
+        echo $hashed_input_password;
+        echo '<br>';
         // Compare the hashed input password with the stored hash
-        return password_verify($input_password . $decoded_salt, $stored_hash);
+        return password_verify($input_password,$hashed_input_password);
     }
 
     public function getSalt() {

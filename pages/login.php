@@ -12,16 +12,15 @@
     <title>Login</title>
 </head>
 <?php
-  include('../scripts/auth/test.php');
-  include('../scripts/auth/login.php');
+  include_once('../scripts/auth/login.php');
   if(isset($_POST['login'])){
     $email = $_POST['email'];
     $password = $_POST['password'];
     login($email,$password);
-    if(login($email,$password)!=false){
-    echo $email;
-    echo $password;
-    echo $_SESSION['name'];
+    if(login($email,$password)==false){
+    // echo $email;
+    // echo $password;
+    // echo $_SESSION['name'];
     }
     
      

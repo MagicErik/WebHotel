@@ -15,9 +15,11 @@ if ($conn->connect_error) {
     // Perform operations with the database here
 }
 
+if (!function_exists('close_connection')){
 function close_connection($conn)
 {
     // Close connection
     $conn->close();
+}
 }
 ?>

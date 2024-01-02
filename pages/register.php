@@ -16,6 +16,7 @@ include('../scripts/auth/session.php');
 <body>
     <?php
     include('../scripts/nav/menue.php');
+
     ?>
     <br><br>
     <div class="box container py-5 h-100">
@@ -85,26 +86,17 @@ include('../scripts/auth/session.php');
     </div>
 </body>
 <?php
-require_once('../scripts/data/user.php');
+require('../scripts/data/user.php');
+
+
 if (isset($_POST['signup'])) {
 
     if ($_POST['password'] === $_POST['password2']) {
-
-        // The submit button was clicked
-        $_SESSION['gender'] = $_POST['gender'];
-        $_SESSION['firstname'] = $_POST['vname'];
-        $_SESSION['lastname'] = $_POST['lname'];
-        $_SESSION['email'] = $_POST['email'];
-        $_SESSION['username'] = $_POST['username'];
-        $_SESSION['password'] = $_POST['password'];
-        $User = new User($_SESSION['username'], $_SESSION['password'], $_SESSION['firstname'], $_SESSION['lastname'], $_SESSION['email']);
-        //write($User);
-        echo "It worked";
-        $_COOKIE['User'] = $_SESSION['firstname'];
-    } else {
+        signUp();
+    }
+    else {
         echo '<div class="col-md-2 box container py-5 h-100">passwörter stimmen nicht überein</div>';
     }
-    //echo $_SESSION['username'];
 }
 ?>
 

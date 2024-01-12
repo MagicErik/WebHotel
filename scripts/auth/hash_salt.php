@@ -9,7 +9,8 @@ class PasswordHasher {
         $salt = $this->generateSalt();
 
         // Combine the password and salt
-        $hashed_password = password_hash($password . $salt, PASSWORD_DEFAULT);
+        //$hashed_password = password_hash($password . $salt, PASSWORD_DEFAULT);
+        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
         // Return the hashed password with salt
         return $hashed_password . ':' . base64_encode($salt);
@@ -19,7 +20,9 @@ class PasswordHasher {
         $decoded_salt = base64_decode($stored_salt);
 
         // Hash the input password with the provided salt
-        $hashed_input_password = password_hash($input_password . $decoded_salt  , PASSWORD_DEFAULT);
+        //$hashed_input_password = password_hash($input_password+ $decoded_salt  , PASSWORD_DEFAULT);
+        $hashed_input_password = password_hash($input_password  , PASSWORD_DEFAULT);
+
         echo '<br>';
         echo $input_password;
         echo '<br>';

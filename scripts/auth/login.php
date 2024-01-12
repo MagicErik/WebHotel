@@ -57,7 +57,9 @@ function login($email, $password)
     if ($passwordHasher->verifyPasswordWithSalt($password,$password_hash,$salt)) {
         echo'yes';
     }
-
+    if(($row['name'] = 'admin')){
+        $_SESSION['role']== 'admin';
+    }
 
     if (($row['email'] == $email) && $passwordHasher->verifyPasswordWithSalt($password,$password_hash,$salt)) {
             $_SESSION["loggedIn"] = true;

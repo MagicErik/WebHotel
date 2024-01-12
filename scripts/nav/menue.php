@@ -1,8 +1,18 @@
 <?php
+
+
 require_once('../scripts/auth/login.php');
 if(isset($_POST['logout'])) {  
     logout();
 } 
+if($_SESSION['loggedIn'] == true && $_SESSION['role']= 'admin'){
+    $users= '<li class="nav-item">
+    <a class="nav-link" href="users.php">Users</a>
+    </li>';
+}
+else{
+    $users='';
+}
 
 if($_SESSION['loggedIn'] == true){
     $placeholder=  '<button class="btn btn-dark span" href="../index.php" name="logout" type="submit">Logout</button>';
@@ -12,11 +22,16 @@ if($_SESSION['loggedIn'] == true){
     $UserProfile= '<li class="nav-item">
     <a class="nav-link" href="profile.php">Profil</a>
 </li>';
+    $reservations= ' <li class="nav-item">
+    <a class="nav-link" href="reservations.php">Reserv</a>
+</li>';
+
 }
 else{
     $placeholder= '<a class="btn btn-dark" href="login.php" role="button">Login</a> <a class="btn btn-outline-secondary" href="register.php" role="button">SignUp</a>';
     $fileupload='';
     $UserProfile= '';
+    $reservations='';
 }
 echo '<nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
 <div class="container-fluid">
@@ -31,17 +46,19 @@ echo '<nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
             <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="../index.php">Home</a>
             </li>
-            '.$UserProfile.''.$fileupload.'
+            '.$UserProfile.''.$fileupload.''.$users.''.$reservations.'
             <li class="nav-item">
                 <a class="nav-link" href="impressum.php">Impressum</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="faq.php">Help</a>
-            </li>
-            <li class="nav-item">
                 <a class="nav-link" href="gallery.php">Pictures</a>
             </li>
-
+            <li class="nav-item">
+            <a class="nav-link" href="news.php">News</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="faq.php">Help</a>
+            </li>
         </ul>
         <form class="forms" method="POST" name="logout">
          '.$placeholder.'

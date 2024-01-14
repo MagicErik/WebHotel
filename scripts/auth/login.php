@@ -4,10 +4,13 @@ require('hash_salt.php');
 
 function signUp()
 {
+    //methode um den User zu regestrieren
+
+    //datenverbindung wird aufgebaut
     require('../scripts/data/db_connection.php');
     $connection = $conn;
 
-    // The submit button was clicked
+    //alle Wer des Forms zur regestrierung werden zu Variablen gesetzt.
     $gender = $_POST['gender'];
     $firstname = $_POST['vname'];
     $lastname = $_POST['lname'];
@@ -15,13 +18,11 @@ function signUp()
     $username = $_POST['username'];
     $password = $_POST['password'];
 
+    //neue instanz von PasswordHasehr wird angelegt.
     $passwordHasher = new PasswordHasher();
-    $hashed_password_salt = $passwordHasher->hashPassword($password);
-    //$hashed_password_salt = explode(":",$hashed_password_salt);
-    $hashed_password = $hashed_password_salt;
-    $salt = $hashed_password_salt[1];
-
-    $query = "INSERT INTO `user`(`email`, `password`,`salt`, `name`) VALUES ('$email','$hashed_password','$salt','$username')";
+    $hashed_password = $passwordHasher->hashPassword($password);
+   
+    $query = "INSERT INTO `user`(`email`, `password`,`salt`, `name`) VALUES ('$email','$hashed_password','skibid','$username')";
     mysqli_query($connection, $query);
 
     echo "It worked";
@@ -29,11 +30,11 @@ function signUp()
     $_SESSION["SignUP"] = true;
 }
 
-function login($email, $password)
+function login($email, $input_password)
 {
     require('../scripts/data/db_connection.php');
 
-    echo '</br></br></br></br>';
+    //echo '</br></br></br></br>PASSWORD'.$input_password;
     $sql = "SELECT * FROM user WHERE email=?" ;
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("s", $email);
@@ -41,36 +42,26 @@ function login($email, $password)
     $result = $stmt->get_result();
     $row = mysqli_fetch_array($result);
     
-    $salt = $row['salt'];
     $password_hash = $row['password'];
 
-    echo $salt;
-    echo "</br>";
-    echo $password_hash;
-    echo "</br>";
-    echo $row['email'];
-    echo "</br>";
-    echo $password;
-    echo "</br>";
     
     $passwordHasher = new PasswordHasher();
-    if ($passwordHasher->verifyPasswordWithSalt($password,$password_hash,$salt)) {
-        echo'yes';
+    if ($passwordHasher->verifyPasswordWithSalt($input_password,$password_hash)) {
+        echo'login worked';
     }
-    if(($row['name'] = 'admin')){
-        $_SESSION['role']== 'admin';
+    if(($row['name'] == 'admin')){
+        $_SESSION['role'] = 'admin';
     }
 
-    if (($row['email'] == $email) && $passwordHasher->verifyPasswordWithSalt($password,$password_hash,$salt)) {
+    if ($passwordHasher->verifyPasswordWithSalt($input_password,$password_hash)) {
             $_SESSION["loggedIn"] = true;
             $_SESSION['name'] = $_SESSION['username'];
-            header("Location: ../index.php");
+            header("Location: http://localhost/Projekt/");
             echo "login success";
             return true;
-        
     }
     else{
-        echo 'login not working';
+        echo "login didn't work";
         echo "</br>";
         return false;
     }
@@ -80,9 +71,10 @@ function login($email, $password)
 function logout()
 {
     if ($_SERVER['REQUEST_URI'] !== 'index.php') {
-        $indexLocation = "Location: ../index.php";
+        
+        $indexLocation = "Location: http://localhost/Projekt/";
     }
-
+    $_SESSION['role'] = null;
     $_SESSION["loggedIn"] = false;
     $_SESSION['name'] = "Billton";
     header($indexLocation);

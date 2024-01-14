@@ -19,6 +19,8 @@ function beliefmedia_grid_gallery($dir = '../res/pictures/gallery/', $columns = 
     @media (min-width: ' . $width[0] . 'px) {
       
       .column {
+        -ms-flex: 90%;
+        flex: 90%;
         float: left;
         width: 90%;
         padding: 10px;
@@ -57,7 +59,7 @@ function beliefmedia_grid_gallery($dir = '../res/pictures/gallery/', $columns = 
       margin: 12px;
       padding: 10px;
       vertical-align: center;
-      min-height: 50%%;
+      min-height: 50%;
       
       max-width: 90%;
     }
@@ -70,7 +72,7 @@ s
     $image_array = glob(rtrim($dir, '/') . '/*.{jpg,jpeg,png,gif}', GLOB_BRACE);
     foreach ($image_array as $image) {
         $image = ($url !== false) ? rtrim($url, '/') . '/' . basename($image) : $image;
-        $return .= '<div class="item selfie col-lg-3 col-md-4 col-6 col-sm "><img decoding="async" class="img rounded float-left" style="width:100%" src="' . $image . '"></div>';
+        $return .= '<div class="item selfie col-lg-3 col-md-4 col-6 col-sm "><img decoding="async" class="img rounded float-left" style="width:90%" src="' . $image . '"></div>';
     }
     $return = '<div class="row">' . $style . $return . '</div>';
     return $return;

@@ -14,14 +14,11 @@
 <?php
   include_once('../scripts/auth/login.php');
   if(isset($_POST['login'])){
+    echo '<br><br><br><br><br><br><br><br><br><br><br>YOUR INPUT IS '.$_POST['password'];
     $email = $_POST['email'];
     $password = $_POST['password'];
     login($email,$password);
-    if(login($email,$password)==false){
-    // echo $email;
-    // echo $password;
-    // echo $_SESSION['name'];
-    }
+    
     
      
   }

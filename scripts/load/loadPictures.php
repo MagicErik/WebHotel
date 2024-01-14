@@ -1,5 +1,5 @@
 <?php
-function beliefmedia_grid_gallery($dir = '../res/pictures/gallery/', $columns = '5', $url = false, $width = '350,960,1200,1460')
+function beliefmedia_grid_gallery($dir = '../res/pictures/gallery/', $columns = '6', $url = false, $width = '350,660,1200,1460')
 {
     $width = explode(',', $width);
     $transient = md5(serialize(func_get_args()));
@@ -51,7 +51,7 @@ function beliefmedia_grid_gallery($dir = '../res/pictures/gallery/', $columns = 
         float: left;
         width: 25%;
         -ms-flex: 25%; /* IE 10 */
-        flex: 25%;
+        
         padding: 0 4px;
       }
     }
@@ -74,7 +74,7 @@ s
         $image = ($url !== false) ? rtrim($url, '/') . '/' . basename($image) : $image;
         $return .= '<div class="item selfie col-lg-3 col-md-4 col-6 col-sm "><img decoding="async" class="img rounded float-left" style="width:90%" src="' . $image . '"></div>';
     }
-    $return = '<div class="row">' . $style . $return . '</div>';
+    $return =$style. '<div class="row">' . $return . '</div>';
     return $return;
 
 }

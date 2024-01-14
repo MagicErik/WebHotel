@@ -16,10 +16,6 @@ function loadNews(){
     $return ="";
 
     $style = '<style>
-    body {
-        font-family: Arial, sans-serif;
-        margin: 20px;
-    }
     .news-container {
         max-width: 800px;
         margin: auto;
@@ -54,7 +50,7 @@ function loadNews(){
         // output data of each row
         while($row = $result->fetch_assoc()) {
             //Schleife nimmt daten aus $row und füngt sie in den HTML text hinein.
-            $return .= '<div class="news-container">
+            $return = '<div class="news-container">
             <div class="news-post">
                 <div class="post-title">'. $row["titel"].'</div>
                 <div class="post-date">'.$row["datum"].'</div>
@@ -64,7 +60,7 @@ function loadNews(){
                 </div>
             </div>
             
-        </div>';
+        </div>'.$return;
         
         }
     } 

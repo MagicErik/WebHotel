@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 15. Jan 2024 um 21:40
+-- Erstellungszeit: 15. Jan 2024 um 23:46
 -- Server-Version: 10.4.28-MariaDB
 -- PHP-Version: 8.2.4
 
@@ -81,7 +81,17 @@ INSERT INTO `news` (`id`, `datum`, `image`, `titel`, `content`) VALUES
 (31, '0000-00-00', '', '', ''),
 (32, '2024-01-10', 'dsadsd', 'dsadsad', 'dsaddsddsa'),
 (33, '2024-01-10', 'dsadsd', 'dsadsad', 'dsaddsddsa'),
-(34, '2024-01-12', 'ztrztztrzztrz', 'zotzotz', 'ztrztrzrt');
+(34, '2024-01-12', 'ztrztztrzztrz', 'zotzotz', 'ztrztrzrt'),
+(35, '2024-01-16', 'Image_created_with_a_mobile_phone.png', 'Bild', 'content'),
+(36, '2024-01-04', '', 'hellpo', 'jo'),
+(37, '2024-01-04', '', 'hellpo', 'jo'),
+(38, '2024-01-04', '', 'hellpo', 'jo'),
+(39, '2024-01-04', '', 'hellpo', 'jo'),
+(40, '2024-01-04', 'Image_created_with_a_mobile_phone.png', 'hellpo', 'jo'),
+(41, '2024-01-04', 'Image_created_with_a_mobile_phone.png', 'hellpo', 'jo'),
+(42, '2024-01-03', '', 'rerwr', 'contetn'),
+(43, '0000-00-00', '', '', ''),
+(44, '0000-00-00', 'Titelbild.jpg', 'dsa', '');
 
 -- --------------------------------------------------------
 
@@ -107,18 +117,7 @@ CREATE TABLE `reservations` (
 --
 
 INSERT INTO `reservations` (`ReservationID`, `UserID`, `RoomID`, `CheckInDate`, `CheckOutDate`, `Status`, `breakfast`, `parking`, `pets`, `date-time-stamp`) VALUES
-(1, 44, 1, '2024-01-19', '2024-01-26', 'neu', 0, 0, 0, '2024-01-15 20:19:55'),
-(2, 44, 1, '2024-01-19', '2024-01-26', 'neu', 0, 0, 0, '2024-01-15 20:19:55'),
-(3, 44, 1, '2024-01-19', '2024-01-26', 'neu', 0, 0, 0, '2024-01-15 20:19:55'),
-(4, 44, 1, '2024-01-19', '2024-01-26', 'neu', 0, 0, 0, '2024-01-15 20:19:55'),
-(5, 44, 1, '2024-01-19', '2024-01-26', 'neu', 0, 0, 0, '2024-01-15 20:19:55'),
-(6, 44, 1, '2024-01-19', '2024-01-26', 'neu', 0, 0, 0, '2024-01-15 20:19:55'),
-(7, 44, 1, '2024-01-19', '2024-01-26', 'neu', 0, 0, 0, '2024-01-15 20:19:55'),
-(8, 44, 1, '2024-01-19', '2024-01-26', 'neu', 0, 0, 0, '2024-01-15 20:19:55'),
-(9, 44, 1, '2024-01-19', '2024-01-26', 'neu', 0, 0, 0, '2024-01-15 20:19:55'),
-(10, 44, 1, '2024-01-11', '2024-01-25', 'neu', 1, 1, 0, '2024-01-15 20:19:55'),
-(11, 44, 1, '2024-01-11', '2024-01-25', 'neu', 1, 1, 0, '2024-01-15 20:19:55'),
-(12, 44, 1, '2024-01-19', '2024-01-26', 'neu', 0, 1, 1, '2024-01-15 20:19:55');
+(13, 51, 2, '2024-01-24', '2024-01-31', 'neu', 1, 1, 0, '2024-01-15 22:29:00');
 
 -- --------------------------------------------------------
 
@@ -164,11 +163,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `email`, `password`, `name`, `firstname`, `lastname`, `gender`, `active`, `admin`) VALUES
-(44, 'erikdittrich11@gmail.com', 'hG8hogjPb@VKP9U8', 'er', 'Erik', 'Dittrich', 'female', 1, 0),
-(45, 'erik@email.com', 'hG8hogjPb@VKP9U8', 'er', 'BLa', 'BLA', 'female', 0, 0),
-(47, 'admin@admin.com', 'hG8hogjPb@VKP9U8', 'admin', 'Admin', 'Admin', 'female', 1, 1),
-(48, 'max@max.max', 'hG8hogjPb@VKP9U8', 'max', 'Max', 'Mustermann', 'male', 1, 0),
-(49, 'erik@erik.com', 'hG8hogjPb@VKP9U8', 'erikdsada', 'Erik', 'Dittrich', 'Female', 1, 0);
+(51, 'erikdittrich11@gmail.com', '$2y$10$ajk.lydtq6.UbR6mBQWE3OL8jrRkAKu1dVlqX13Np1JvSTcjY0PCa', 'erik', 'Erik', 'Dittrich', 'male', 1, 0),
+(53, 'admin@admin.com', '$2y$10$UDSNo52SACd6C1alopjyR.PW2BaR55XLlg9kPOHte.kB4gmPNU8x6', 'admins', 'Admin', 'Admin', 'male', 1, 1);
 
 --
 -- Indizes der exportierten Tabellen
@@ -215,19 +211,19 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT für Tabelle `news`
 --
 ALTER TABLE `news`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT für Tabelle `reservations`
 --
 ALTER TABLE `reservations`
-  MODIFY `ReservationID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `ReservationID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT für Tabelle `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- Constraints der exportierten Tabellen

@@ -22,15 +22,21 @@ include('../scripts/auth/session.php');
         $roomType = $_POST["roomType"];
         $checkInDate = $_POST["checkInDate"];
         $checkOutDate = $_POST["checkOutDate"];
+        $breakfast = isset($_POST["breakfastCheckbox"]) ? 1 : 0;
+        $parking = isset($_POST["parkingCheckbox"]) ? 1 : 0;
+        $pets = isset($_POST["petsCheckbox"]) ? 1 : 0;
 
         // Füge die Reservierung in die Datenbank ein
-        $insertSql = "INSERT INTO Reservations (UserID, RoomID, CheckInDate, CheckOutDate, Status)
+        $insertSql = "INSERT INTO Reservations (UserID, RoomID, CheckInDate, CheckOutDate, Status, breakfast,parking,pets)
                   VALUES (
                     (SELECT id FROM User WHERE email = '$email'),
                     (SELECT RoomID FROM Rooms WHERE RoomType = '$roomType'),
                     '$checkInDate',
                     '$checkOutDate',
-                    'neu'
+                    'neu',
+                    '$breakfast',
+                    '$parking',
+                    '$pets'
                   )";
 
         if ($conn->query($insertSql) === TRUE) {
@@ -80,7 +86,8 @@ include('../scripts/auth/session.php');
                         <input type="checkbox" class="form-check-input" id="petsCheckbox" name="petsCheckbox">
                         <label class="form-check-label" for="petsCheckbox">Haustiere (Pets)+ 5€ (pro Nacht)</label>
                     </div>
-                </div>
+                </div> 
+                </br>
 
                 <button type="submit" name="createReservation" class="btn btn-primary">Submit Reservation</button>
             </form>

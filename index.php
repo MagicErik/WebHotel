@@ -42,7 +42,7 @@ else{
 
 if($_SESSION['loggedIn'] == true && $_SESSION['role']== 'admin'){
     $users= '<li class="nav-item">
-    <a class="nav-link" href="users.php">Users</a>
+    <a class="nav-link" href="pages/users.php">Users</a>
     </li>';
     $fileupload='<li class="nav-item">
     <a class="nav-link" href="pages/upload.php">Upload</a>

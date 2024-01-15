@@ -26,7 +26,11 @@ include('../scripts/auth/session.php');
                 <th>Room Type</th>
                 <th>Check-In Date</th>
                 <th>Check-Out Date</th>
+                <th>Breakfast</th>
+                <th>Parking</th>
+                <th>Pets</th>
                 <th>Status</th>
+                
             </tr>
 
             <?php
@@ -42,7 +46,7 @@ include('../scripts/auth/session.php');
                 
             }
 
-            $sql = "SELECT Reservations.ReservationID, User.FirstName, User.LastName, Rooms.RoomNumber, Rooms.RoomType, Reservations.CheckInDate, Reservations.CheckOutDate,  Reservations.Status
+            $sql = "SELECT Reservations.ReservationID, User.FirstName, User.LastName, Rooms.RoomNumber, Rooms.RoomType, Reservations.CheckInDate, Reservations.CheckOutDate,  Reservations.Status,Reservations.breakfast,Reservations.parking,Reservations.pets
                 FROM Reservations
                 JOIN User ON Reservations.UserID = User.id
                 JOIN Rooms ON Reservations.RoomID = Rooms.RoomID";
@@ -61,6 +65,9 @@ include('../scripts/auth/session.php');
                     echo "<td>" . $row["RoomType"] . "</td>";
                     echo "<td>" . $row["CheckInDate"] . "</td>";
                     echo "<td>" . $row["CheckOutDate"] . "</td>";
+                    echo "<td><input type='checkbox' name='breakfast[" . $row["ReservationID"] . "]' " . ($row["breakfast"] == 1 ? "checked" : "") ." disabled></td>";
+                    echo "<td><input type='checkbox' name='parking[" . $row["ReservationID"] . "]' " . ($row["parking"] == 1 ? "checked" : "") . " disabled></td>";
+                    echo "<td><input type='checkbox' name='parking[" . $row["ReservationID"] . "]' " . ($row["pets"] == 1 ? "checked" : "") . " disabled></td>";
                     echo "<td>";
                     echo "<form method='post' action='" . $_SERVER["PHP_SELF"] . "'>";
                     echo "<input type='hidden' name='reservationID' value='" . $row["ReservationID"] . "'>";

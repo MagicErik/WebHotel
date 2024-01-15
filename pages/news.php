@@ -19,23 +19,37 @@ include('../scripts/auth/session.php');
     <div class="container">
       <?php
       //header("refresh: 3;");
-      echo loadNews();
       if (isset($_POST['btnNewNews'])) {
         echo '
-        <form action="#" method="post">
+        <form action="news.php" method="post">
         <div class="news-container">
         <div class="news-post">
             <div class="post-title"><input type="text" name="post-titel" placeholder="Titel"></input></div>
             <div class="post-date"><input type="date" name="post-date" placeholder="Datum"></div>
+            <form action="upload.php" method="post" enctype="multipart/form-data">
+            Select image to upload:
+            <input type="file" name="fileToUpload" id="fileToUpload">
+            <input type="submit" value="Upload Image" name="submit">
+            </form>
             <input type="text" name="post-image" placeholder="bilder name"></input>
             <div class="post-text">
                 <p><input name="post-text" type="text" placeholder="content"></p>
             </div>
-            <button type="submit" name="saveNews">Save</button>
+            <button type="submit" href="news.php" name="saveNews">Save</button>
         </div>
     </div></form>'
-        ;
-      }
+        ;}
+        if($_SESSION['role'] == 'admin'){
+          echo " <form action='' method='post'>
+          <div class='row'>
+            <div class='col text-center'>
+              <button type='submit' name='btnNewNews'>New NewsPost</button>
+            </div>
+          </div>
+        </form></br>";
+        }
+      echo loadNews();
+     
       if (isset($_POST['saveNews'])) {
         include('../scripts/data/db_connection.php');
 
@@ -48,17 +62,12 @@ include('../scripts/auth/session.php');
         $sql = "INSERT INTO `news`(`datum`,`image`, `titel`, `content`) VALUES ('$date','$image','$titel','$content')";
         $stmt = $conn->prepare($sql);
         $stmt->execute();
+        
+        header("Location: news.php");
+      
 
       }
-      if($_SESSION['role'] == 'admin'){
-        echo " <form action='' method='post'>
-        <div class='row'>
-          <div class='col text-center'>
-            <button type='submit' name='btnNewNews'>New NewsPost</button>
-          </div>
-        </div>
-      </form>";
-      }
+ 
       ?>
       
      

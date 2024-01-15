@@ -15,13 +15,12 @@ include('../scripts/auth/session.php');
     include('../scripts/nav/menue.php');
     include('../scripts/data/db_connection.php');
     if (isset($_POST['Save'])) {
-        
+
         foreach ($_POST["id"] as $email => $id) {
             // Aktualisiere nur, wenn die Email-Adresse vorhanden ist
             if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
                 $id = $_POST["id"][$email];
                 $email = $_POST["email"][$email];
-                $password = $_POST["password"][$email];
                 $name = $_POST["name"][$email];
                 $firstname = $_POST["firstname"][$email];
                 $lastname = $_POST["lastname"][$email];
@@ -45,7 +44,7 @@ include('../scripts/auth/session.php');
 
     // HTML-Tabelle mit Formular
     echo "<div class='box1'><form method='post' action='" . $_SERVER["PHP_SELF"] . "'>
-        <table border='1'>
+        <table border='2'>
             <tr>
                 <th>ID</th>
                 <th>Email</th>
@@ -60,8 +59,8 @@ include('../scripts/auth/session.php');
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
             echo "<tr>
-        <td><input type='text' name='id[" . $row["email"] . "]' value='" . $row["id"] . "'></td>
-        <td><input type='text' name='email[" . $row["email"] . "]' value='" . $row["email"] . "'></td>
+        <td><input type='text' name='id[" . $row["email"] . "]' value='" . $row["id"] . "'readonly></td>
+        <td><input type='text' name='email[" . $row["email"] . "]' value='" . $row["email"] . "'readonly></td>
         <td><input type='text' name='name[" . $row["email"] . "]' value='" . $row["name"] . "'></td>
         <td><input type='text' name='firstname[" . $row["email"] . "]' value='" . $row["firstname"] . "'></td>
         <td><input type='text' name='lastname[" . $row["email"] . "]' value='" . $row["lastname"] . "'></td>

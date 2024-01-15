@@ -21,7 +21,7 @@ include('../scripts/auth/session.php');
     <div class="box container py-5 h-100">
         <form action="" class="forms" method="post" name="signup">
             <div class="forminput">
-                <label class="formtext" for="anrede">Anrede: </label>
+                <label class="formtext" for="gender">Anrede: </label>
                 <input type="radio" id="gender1" name="gender" value="male" required>
                 <label for="gender1">Herr</label>
 

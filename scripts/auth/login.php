@@ -11,6 +11,7 @@ function signUp()
     $connection = $conn;
 
     //alle Wer des Forms zur regestrierung werden zu Variablen gesetzt.
+    echo $_POST['gender'];
     $gender = $_POST['gender'];
     $firstname = $_POST['vname'];
     $lastname = $_POST['lname'];
@@ -22,10 +23,9 @@ function signUp()
     $passwordHasher = new PasswordHasher();
     $hashed_password = $passwordHasher->hashPassword($password);
    
-    $query = "INSERT INTO `user`(`email`, `password`,`salt`, `name`) VALUES ('$email','$hashed_password','skibid','$username')";
+    $query = "INSERT INTO `user`(`email`, `password`, `name`, `firstname`, `lastname`,`gender`,`active`,`admin`) VALUES ('$email','$hashed_password','$username','$firstname','$lastname','$gender','1','0')";
     mysqli_query($connection, $query);
 
-    echo "It worked";
     $_COOKIE['User'] = $firstname;
     $_SESSION["SignUP"] = true;
 }
@@ -43,28 +43,39 @@ function login($email, $input_password)
     $row = mysqli_fetch_array($result);
     
     $password_hash = $row['password'];
-
+    echo $row['admin'];
     
     $passwordHasher = new PasswordHasher();
     if ($passwordHasher->verifyPasswordWithSalt($input_password,$password_hash)) {
-        echo'login worked';
-    }
-    if(($row['name'] == 'admin')){
-        $_SESSION['role'] = 'admin';
-    }
-
-    if ($passwordHasher->verifyPasswordWithSalt($input_password,$password_hash)) {
-            $_SESSION["loggedIn"] = true;
-            $_SESSION['name'] = $_SESSION['username'];
-            header("Location: http://localhost/Projekt/");
-            echo "login success";
-            return true;
+        $_SESSION["loggedIn"] = true;
+        
+        $_SESSION["username"] = $row["name"];
+        $_SESSION["firstname"] = $row["firstname"];
+        $_SESSION["lastname"] = $row["lastname"];
+        $_SESSION["gender"] = $row["gender"];
+        $_SESSION["firstname"] = $row["firstname"];
+        
+        $_SESSION['email'] = $email;
+        $_SESSION['role'] = 'registered';
+        $_SESSION["loggedIn"] = true;
+        
+        
+        //header("Location: http://localhost/Projekt/");
+        echo "login success";
+        return true;
     }
     else{
         echo "login didn't work";
         echo "</br>";
         return false;
     }
+
+
+    if(($row['admin'] == '1')){
+        $_SESSION['role'] = 'admin';
+    }
+
+    
 
 }
 

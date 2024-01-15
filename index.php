@@ -7,9 +7,9 @@
 <head>
   <title>Home</title>
 
-  <link rel="stylesheet" href="res/style.css">
-    <link rel="stylesheet" href="res/bootstrap-5.3.2-dist/css/bootstrap.css">   
-    <link rel="icon" type="image/jpg" href="../res/pictures/vector-hotel-icon-symbol-sign.jpg">
+  <?php 
+  include("scripts/load/loadCss.php");
+  ?>
 
 
 </head>
@@ -20,7 +20,10 @@ require_once('scripts/auth/login.php');
 if(isset($_POST['logout'])) {  
     logout();
 } 
-
+$fileupload='';
+$UserProfile= '';
+$reservations='';
+$users='';
 
 if($_SESSION['loggedIn'] == true){
     $placeholder=  '<button class="btn btn-dark span" href="index.php" name="logout" type="submit">Logout</button>';
@@ -35,9 +38,7 @@ if($_SESSION['loggedIn'] == true){
 }
 else{
     $placeholder= '<a class="btn btn-dark" href="pages/login.php" role="button">Login</a> <a class="btn btn-outline-secondary" href="pages/register.php" role="button">SignUp</a>';
-    $fileupload='';
-    $UserProfile= '';
-    $reservations='';
+    
 }
 
 if($_SESSION['loggedIn'] == true && $_SESSION['role']== 'admin'){
@@ -52,19 +53,16 @@ $reservations= ' <li class="nav-item">
 </li>';
 
 }
-else{
-    $users='';
-    
-}
 
-echo '<nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
+
+echo '
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
 <div class="container-fluid">
-    <a class="navbar-brand" value="Billton" href="#">Billton</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-        aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+<a class="navbar-brand" value="Billton" href="#">Billton</a>
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+<span class="navbar-toggler-icon"></span>
+</button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">

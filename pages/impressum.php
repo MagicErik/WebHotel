@@ -14,131 +14,100 @@
 <?php 
   include('../scripts/nav/menue.php');
   ?>
+    <div class="container-fluid">
     <div class="box1">
-        <h1>Impressum</h1>
-        <br>
-        <div class="box">
-            <table style="margin: 0%; padding: 0%;">
-                <tr >
-                    <th style="font-weight: 100;">
-                        <div >
-                            <h2>Verantwortlich für den Inhalt:</h2>
-                            <p1>Dittrich Erik <br>
-                                Langestraße 123<br>
-                                0664 123 456 789<br>
-                                <a href="mailto:email@this.email.com">email@this.email.com</a>
-                            </p1>
-                        </div>
+        <h1 class="mb-4">Impressum</h1>
+
+        <div class="mt-4">
+            <table class="table">
+                <tr>
+                    <th>
+                        <h2>Verantwortlich für den Inhalt:</h2>
+                        <p>Dittrich Erik <br>
+                            Langestraße 123<br>
+                            0664 123 456 789<br>
+                            <a href="mailto:email@this.email.com">email@this.email.com</a>
+                        </p>
                     </th>
                     <th>
-                        <img src="../res/pictures/PXL_20220623_105750104.jpg"   height="120px" style="margin-top: 20px;  float: left; padding-top:10px"
-                            alt="Dittrich Erik">
-
+                        <img src="../res/pictures/PXL_20220623_105750104.jpg" class="img-fluid" style="max-width: 90px;" alt="Dittrich Erik">
                     </th>
-                  
                 </tr>
                 <tr>
-                <th style="font-weight: 100;">
-                    <div >
-                            <p1>Kovacevic Michael <br>
-                                Kurzestraße 123<br>
-                                0660 987 654 321<br>
-                                <a href="mailto:this@email.email.com">email@this.email.com</a>
-                            </p1>
-                        </div>
+                    <th>
+                        <p>Kovacevic Michael <br>
+                            Kurzestraße 123<br>
+                            0660 987 654 321<br>
+                            <a href="mailto:this@email.email.com">email@this.email.com</a>
+                        </p>
                     </th>
                     <th>
-                        <img src="../res/pictures/20240115_171619.jpg"   height="120px" style="margin-top: 20px;  float: left; padding-top:10px"
-                            alt="Dittrich Erik">
-
+                        <img src="../res/pictures/20240115_171619.jpg" class="img-fluid" style="max-width: 90px;" alt="Kovacevic Michael">
                     </th>
                 </tr>
             </table>
         </div>
-       
 
-
-        <br>
-        <div class="box">
+        <div class="box mt-4">
             <h2>Hotelkontakt:</h2>
-
-            <p1>Billton<br>
+            <p>Billton<br>
                 Billtonstraße 345<br>
                 0699 123 456 789<br>
                 <a href="mailto:billton@billton.com">billton@billton.com</a><br>
-                billton.com<br>
-            </p1>
+                billton.com
+            </p>
         </div>
-        <br>
-        <div class="box">
-            <h2>Firmenbuchnummer:<br></h2>
 
-            <p1>FN 123456a<br></p1>
+        <div class="box mt-4">
+            <h2>Firmenbuchnummer:</h2>
+            <p>FN 123456a</p>
         </div>
-        <br>
-        <div class="box">
-            <h2>UID-Nummer:<br></h2>
 
-            <p1>ATU12345678<br></p1>
+        <div class="box mt-4">
+            <h2>UID-Nummer:</h2>
+            <p>ATU12345678</p>
         </div>
-        <br>
-        <div class="box">
-            <h2>Mitglied bei:<br></h2>
 
-            <p1>Wko<br>
+        <div class="box mt-4">
+            <h2>Mitglied bei:</h2>
+            <p>Wko<br>
                 Schwarzenbergplatz 4<br>
-                1030 Wien<br></p1>
+                1030 Wien
+            </p>
         </div>
-        <br>
-        <div class="box">
-            <h2>Berufshaftpflichtversicherung:<br></h2>
-            <p1>Österreichische Haftpflichtversicherung<br>
-                Versicherungstraße 327</p1><br>
-        </div>
-        <br>
-        <div class="box">
-            <h2>Urheberrecht und Bildnachweise:<br></h2>
 
-            <p1>Alle Bilder und Grafiken dieser Website gehören ausschlieslich Billton.<br></p1>
+        <div class="box mt-4">
+            <h2>Versicherung:</h2>
+            <p>Österreichische Haftpflichtversicherung<br>
+                Versicherungstraße 327
+            </p>
         </div>
-        <br>
-        <div class="box">
-            <h2>Haftung für Links:<br></h2>
 
-            <p1>Unsere Website enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss
-                haben.<br>
-                Für
-                die Inhalte
-                der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich.<br>
-                Eine
-                permanente
-                inhaltliche Kontrolle der verlinkten Seiten ist ohne konkrete Anhaltspunkte einer
-                Rechtsverletzung nicht
-                zumutbar.<br> Bei
-                bekannt werden von Rechtsverletzungen werden wir derartige Links umgehend entfernen.<br></p1>
+        <div class="box mt-4">
+            <h2>Urheberrecht und Bildnachweise:</h2>
+            <p>Alle Bilder und Grafiken dieser Website gehören ausschließlich Billton.
+            </p>
         </div>
-        <br>
-        <div class="box">
-            <h2>Streitschlichtung:<br></h2>
 
-            <p1>Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit:<br>
-                <a href="https://ec.europa.eu/consumers/odr">https://ec.europa.eu/consumers/odr</a>. Unsere
-                E-Mail-Adresse finden Sie oben im Impressum. Wir sind
-                nicht
-                bereit oder
-                verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.
-            </p1>
+        <div class="box mt-4">
+            <h2>Haftung für Links:</h2>
+            <p>Unsere Website enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich. Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei bekannt werden von Rechtsverletzungen werden wir derartige Links umgehend entfernen.
+            </p>
         </div>
-        <br>
-        <div class="box">
-            <h2>Datenschutz:<br></h2>
 
-            <p1>Informationen zur Verarbeitung personenbezogener Daten finden Sie in unserer
-                Datenschutzerklärung.</p1>
+        <div class="box mt-4">
+            <h2>Streitschlichtung:</h2>
+            <p>Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: <a href="https://ec.europa.eu/consumers/odr">https://ec.europa.eu/consumers/odr</a>. Unsere E-Mail-Adresse finden Sie oben im Impressum. Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.
+            </p>
         </div>
-        <br>
+
+        <div class="box mt-4">
+            <h2>Datenschutz:</h2>
+            <p>Informationen zur Verarbeitung personenbezogener Daten finden Sie in unserer Datenschutzerklärung.
+            </p>
+        </div>
     </div>
-    </div>
+</div>
 </body>
 
 </html>

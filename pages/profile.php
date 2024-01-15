@@ -28,7 +28,7 @@ include('../scripts/auth/session.php');
                 $email = $_SESSION['email'];
 
                 $sql = "UPDATE `user`
-                SET `email`='$email', `password`='$password',
+                SET `email`='$email',
                 `name`='$username', `firstname`='$first_name', `lastname`='$last_name',
                 `gender`='$gender'
                 WHERE `email`='$email'";

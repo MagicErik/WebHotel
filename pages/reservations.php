@@ -58,8 +58,8 @@ include('../scripts/auth/session.php');
                 <div class="form-group">
                     <label for="roomType">Room Type:</label>
                     <select class="form-control" id="roomType" name="roomType" required>
-                        <option value="Standard">Standard</option>
-                        <option value="Suite">Suite</option>
+                        <option value="Standard">Standard (250 € pro Nacht)</option>
+                        <option value="Suite">Suite (500 € pro Nacht)</option>
                         <!-- Add more room types if needed -->
                     </select>
                 </div>

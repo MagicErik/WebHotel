@@ -5,7 +5,7 @@ include('../scripts/auth/session.php');
 
 <head>
 
-<?php include_once ('../scripts/load/loadCss.php');
+<?php include ('../scripts/load/loadCss.php');
     ?>
     <title>Register</title>
 </head>
@@ -18,7 +18,7 @@ include('../scripts/auth/session.php');
 
     ?>
     <br><br>
-    <div class="box container py-5 h-100">
+    <div class="box1 container py-5 h-100">
         <form action="" class="forms" method="post" name="signup">
             <div class="forminput">
                 <label class="formtext" for="gender">Anrede: </label>

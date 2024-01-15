@@ -1,11 +1,11 @@
 <?php
 $servername = "localhost"; // Replace with your server name or IP address
 $username = "hotelmanager"; // Replace with your MySQL username
-$password = "hG8hogjPb@VKP9U8"; // Replace with your MySQL password
+$password_db = "hG8hogjPb@VKP9U8"; // Replace with your MySQL password
 $dbname = "hotel"; // Replace with your MySQL database name
 
 // Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = new mysqli($servername, $username, $password_db, $dbname);
 
 // Check connection
 if ($conn->connect_error) {

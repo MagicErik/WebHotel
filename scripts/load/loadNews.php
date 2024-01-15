@@ -54,7 +54,7 @@ function loadNews(){
             <div class="news-post">
                 <div class="post-title">'. $row["titel"].'</div>
                 <div class="post-date">'.$row["datum"].'</div>
-                <img class="post-image" src="../res/pictures/'. $row["image"].' alt="Bildbeschreibung">
+                <img class="post-image" src="../res/pictures/news/'. $row["image"].'" alt="Bildbeschreibung">
                 <div class="post-text">
                     <p>'. $row["content"].'</p>
                 </div>

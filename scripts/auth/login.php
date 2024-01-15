@@ -11,7 +11,7 @@ function signUp()
     $connection = $conn;
 
     //alle Wer des Forms zur regestrierung werden zu Variablen gesetzt.
-    echo $_POST['gender'];
+    //echo $_POST['gender'];
     $gender = $_POST['gender'];
     $firstname = $_POST['vname'];
     $lastname = $_POST['lname'];
@@ -28,13 +28,14 @@ function signUp()
 
     $_COOKIE['User'] = $firstname;
     $_SESSION["SignUP"] = true;
+    $_SESSION["loggedIn"] = true;
+    //header("Location: http://localhost/Projekt/");
 }
 
 function login($email, $input_password)
 {
     require('../scripts/data/db_connection.php');
 
-    //echo '</br></br></br></br>PASSWORD'.$input_password;
     $sql = "SELECT * FROM user WHERE email=?" ;
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("s", $email);
@@ -43,10 +44,11 @@ function login($email, $input_password)
     $row = mysqli_fetch_array($result);
     
     $password_hash = $row['password'];
-    echo $row['admin'];
+    $admin = $row['admin'];
+    //echo "Is admin or not :".$row['admin'];
     
     $passwordHasher = new PasswordHasher();
-    if ($passwordHasher->verifyPasswordWithSalt($input_password,$password_hash)) {
+    if ($passwordHasher->verifyPasswordWithSalt($input_password,$password_hash)&&$row['active']==1) {
         $_SESSION["loggedIn"] = true;
         
         $_SESSION["username"] = $row["name"];
@@ -55,14 +57,22 @@ function login($email, $input_password)
         $_SESSION["gender"] = $row["gender"];
         $_SESSION["firstname"] = $row["firstname"];
         
-        $_SESSION['email'] = $email;
-        $_SESSION['role'] = 'registered';
+        $_SESSION["email"] = $email;
+        $_SESSION["role"] = 'registered';
         $_SESSION["loggedIn"] = true;
         
         
-        //header("Location: http://localhost/Projekt/");
+        header("Location: http://localhost/Projekt/");
         echo "login success";
+        if(($row["admin"] == 1)){
+            $_SESSION['role'] = 'admin';
+            echo 'is admin';
+        }
         return true;
+    }
+    elseif($row['active']==0){
+        echo "account is deativated";
+        return false;
     }
     else{
         echo "login didn't work";
@@ -71,9 +81,7 @@ function login($email, $input_password)
     }
 
 
-    if(($row['admin'] == '1')){
-        $_SESSION['role'] = 'admin';
-    }
+   
 
     
 
@@ -88,7 +96,9 @@ function logout()
     $_SESSION['role'] = null;
     $_SESSION["loggedIn"] = false;
     $_SESSION['name'] = "Billton";
+    session_destroy();
     header($indexLocation);
+    
 }
 
 

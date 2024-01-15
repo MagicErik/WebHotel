@@ -12,7 +12,7 @@
 <?php
   include_once('../scripts/auth/login.php');
   if(isset($_POST['login'])){
-    echo '<br><br><br><br><br><br><br><br><br><br><br>YOUR INPUT IS '.$_POST['password'];
+    //echo '<br><br><br><br><br><br><br><br><br><br><br>YOUR INPUT IS '.$_POST['password'];
     $email = $_POST['email'];
     $password = $_POST['password'];
     login($email,$password);

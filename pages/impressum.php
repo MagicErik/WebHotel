@@ -24,7 +24,7 @@
                         <div >
                             <h2>Verantwortlich für den Inhalt:</h2>
                             <p1>Dittrich Erik <br>
-                                Langestrasße 123<br>
+                                Langestraße 123<br>
                                 0664 123 456 789<br>
                                 <a href="mailto:email@this.email.com">email@this.email.com</a>
                             </p1>
@@ -40,15 +40,15 @@
                 <tr>
                 <th style="font-weight: 100;">
                     <div >
-                            <p1>Dittrich Erik <br>
-                                Langestrasße 123<br>
-                                0664 123 456 789<br>
-                                <a href="mailto:email@this.email.com">email@this.email.com</a>
+                            <p1>Kovacevic Michael <br>
+                                Kurzestraße 123<br>
+                                0660 987 654 321<br>
+                                <a href="mailto:this@email.email.com">email@this.email.com</a>
                             </p1>
                         </div>
                     </th>
                     <th>
-                        <img src="../res/pictures/PXL_20220623_105750104.jpg"   height="120px" style="margin-top: 20px;  float: left; padding-top:10px"
+                        <img src="../res/pictures/20240115_171619.jpg"   height="120px" style="margin-top: 20px;  float: left; padding-top:10px"
                             alt="Dittrich Erik">
 
                     </th>

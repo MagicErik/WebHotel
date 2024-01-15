@@ -5,20 +5,8 @@ require_once('../scripts/auth/login.php');
 if(isset($_POST['logout'])) {  
     logout();
 } 
-if($_SESSION['loggedIn'] == true && $_SESSION['role']== 'admin'){
-    $users= '<li class="nav-item">
-    <a class="nav-link" href="users.php">Users</a>
-    </li>';
-}
-else{
-    $users='';
-}
-
 if($_SESSION['loggedIn'] == true){
     $placeholder=  '<button class="btn btn-dark span" href="../index.php" name="logout" type="submit">Logout</button>';
-    $fileupload='<li class="nav-item">
-    <a class="nav-link" href="upload.php">Upload</a>
-</li>';
     $UserProfile= '<li class="nav-item">
     <a class="nav-link" href="profile.php">Profil</a>
 </li>';
@@ -33,6 +21,25 @@ else{
     $UserProfile= '';
     $reservations='';
 }
+
+if($_SESSION['loggedIn'] == true && $_SESSION['role']== 'admin'){
+    $users= '<li class="nav-item">
+    <a class="nav-link" href="users.php">Users</a>
+    </li>';
+    $fileupload='<li class="nav-item">
+    <a class="nav-link" href="upload.php">Upload</a>
+</li>';
+$reservations= ' <li class="nav-item">
+<a class="nav-link" href="reservations_admin.php">Reserv</a>
+</li>';
+}
+else{
+    $users='';
+    $fileupload='';
+    
+}
+
+
 echo '<nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
 <div class="container-fluid">
     <a class="navbar-brand" value="Billton" href="#">Billton</a>

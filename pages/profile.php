@@ -18,24 +18,33 @@ include('../scripts/auth/session.php');
     <div class="box1">
         <div class="container-xl px-4 mt-4">
             <?php 
-            if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            if (isset($_POST['Save'])) {
                 require('../scripts/data/db_connection.php');
                 // Retrieve values from the form
-                $sql = "SELECT * FROM user WHERE email=?" ;
-                $stmt = $conn->prepare($sql);
-                $stmt->bind_param("s", $email);
-                $stmt->execute();
-                $result = $stmt->get_result();
-                $row = mysqli_fetch_array($result);
-                
                 $username = $_POST['username'];
                 $first_name = $_POST['first_name'];
                 $last_name = $_POST['last_name'];
-                $org_name = $_POST['org_name'];
-                $location = $_POST['location'];
-                $email = $_POST['email'];
-                $phone = $_POST['phone'];
-                $birthday = $_POST['birthday'];
+                $gender = $_POST['gender'];
+                $email = $_SESSION['email'];
+
+                $sql = "UPDATE `user`
+                SET `email`='$email', `password`='$password',
+                `name`='$username', `firstname`='$first_name', `lastname`='$last_name',
+                `gender`='$gender'
+                WHERE `email`='$email'";
+
+                $stmt = $conn->prepare($sql);
+                $stmt->execute();
+
+                $_SESSION["username"] = $username;
+                $_SESSION["firstname"] = $first_name;
+                $_SESSION["lastname"] = $last_name;
+                $_SESSION["gender"] = $gender;
+                
+                
+                
+
+
 
 
             }
@@ -67,7 +76,7 @@ include('../scripts/auth/session.php');
                                 <label class='small mb-1' for='inputUsername'>Username (how your name will appear to
                                     other users on the site)</label>
                                 <input class='form-control' id='inputUsername' type='text'
-                                    placeholder=".$_SESSION['username']." name='username'>
+                                    value=".$_SESSION['username']." name='username'>
                             </div>
                             <!-- Form Row-->
                             <div class='row gx-3 mb-3'>
@@ -96,12 +105,12 @@ include('../scripts/auth/session.php');
                                 <!-- Form Group (birthday)-->
                                 <div class='col-md-6'>
                                     <label class='small mb-1' for='inputBirthday'>Gender</label>
-                                    <input class='form-control' id='inputBirthday' type='text' name='birthday'
+                                    <input class='form-control' id='inputBirthday' type='text' name='gender'
                                         placeholder='Enter your birthday' value=".$_SESSION['gender'].">
                                 </div>
                             </div>
                             <!-- Save changes button-->
-                            <button class='btn btn-primary' type='button'>Save changes</button>
+                            <button class='btn btn-primary' name='Save' type='submit'>Save changes</button>
                         </form>
                     </div>
                 </div>
